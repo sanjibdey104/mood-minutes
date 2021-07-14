@@ -15,6 +15,10 @@ const StyledSignUpSection = styled.section`
   gap: 1rem;
   position: relative;
 
+  h2 {
+    font-size: 2.2rem;
+  }
+
   a {
     color: tomato;
   }

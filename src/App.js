@@ -1,4 +1,4 @@
-import SignUp from "./components/SignUp";
+import Welcome from "./components/Welcome";
 import { GlobalStyles } from "./styles/globalStyles";
 
 function App() {
@@ -6,8 +6,7 @@ function App() {
     <>
       <GlobalStyles />
       <div className="container">
-        <h2>Welcome to Mood Minutes</h2>
-        <SignUp />
+        <Welcome />
       </div>
     </>
   );
