@@ -1,10 +1,15 @@
-import "./App.css";
+import SignUp from "./components/SignUp";
+import { GlobalStyles } from "./styles/globalStyles";
 
 function App() {
   return (
-    <div className="App">
-      <h2>Welcome to Mood Minutes</h2>
-    </div>
+    <>
+      <GlobalStyles />
+      <div className="container">
+        <h2>Welcome to Mood Minutes</h2>
+        <SignUp />
+      </div>
+    </>
   );
 }
 
