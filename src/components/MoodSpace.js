@@ -42,7 +42,7 @@ const StyledMoodSpace = styled.section`
 `;
 
 const MoodSpace = () => {
-  const { logout } = useContext(AuthContext);
+  const { logout, authUser } = useContext(AuthContext);
   const history = useHistory();
   const [mood, setMood] = useState("");
 
@@ -53,7 +53,7 @@ const MoodSpace = () => {
 
   return (
     <StyledMoodSpace>
-      <p>Hi, user</p>
+      <p>Hi, {authUser.displayName ? authUser.displayName : "there"}</p>
       <input
         type="text"
         id="mood-input"
