@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/initFirebase";
+import Loader from "../components/Loader";
 
 export const AuthContext = createContext({
   authUser: null,
@@ -34,6 +35,14 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
   };
+
+  if (loading) {
+    return (
+      <div className="container">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>

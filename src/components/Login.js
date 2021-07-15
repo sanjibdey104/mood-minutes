@@ -63,7 +63,7 @@ const StyledLoginForm = styled.form`
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useContext(AuthContext);
+  const { login, authUser } = useContext(AuthContext);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState(null);
   const history = useHistory();
@@ -80,6 +80,10 @@ const Login = () => {
       setError(err);
     }
   };
+
+  if (authUser) {
+    history.push("/moodspace");
+  }
 
   return (
     <StyledLoginSection>

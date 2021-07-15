@@ -67,7 +67,7 @@ const SignUp = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState(null);
-  const { signup } = useContext(AuthContext);
+  const { signup, authUser } = useContext(AuthContext);
   const history = useHistory();
 
   const handleSignup = async (e) => {
@@ -87,6 +87,10 @@ const SignUp = () => {
     }
     setPending(false);
   };
+
+  if (authUser) {
+    history.push("/moodspace");
+  }
 
   return (
     <StyledSignUpSection>
