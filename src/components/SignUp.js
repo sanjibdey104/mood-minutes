@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../context/AuthContext";
 import ballet from "../images/open-doodles-ballet.svg";
+import Toast from "./Toast";
 
 const StyledSignUpSection = styled.section`
   width: 100%;
@@ -88,6 +89,7 @@ const SignUp = () => {
 
   return (
     <StyledSignUpSection>
+      {error && <Toast msg={error} />}
       <img src={ballet} alt="ballet doodle" id="ballet-doodle" />
       <h2>sign up your mood</h2>
       <StyledSignUpForm
