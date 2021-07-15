@@ -4,7 +4,7 @@ import swinging from "../images/open-doodles-swinging.svg";
 import { Link } from "react-router-dom";
 
 const StyledWelcomeSection = styled.section`
-  width: 100%;
+  width: 80%;
   height: 100%;
   border-radius: 1rem;
 
@@ -49,7 +49,7 @@ const StyledWelcomeSection = styled.section`
   }
 
   #cover-art {
-    width: clamp(12rem, 15vw, 30rem);
+    width: clamp(12rem, 15vw, 25rem);
     margin: 0 auto;
   }
 `;
@@ -57,7 +57,7 @@ const StyledWelcomeSection = styled.section`
 const Welcome = () => {
   return (
     <StyledWelcomeSection>
-      <img src={swinging} alt="relaxed girl" id="cover-art" />
+      <img src={swinging} alt="relaxed doodle" id="cover-art" />
       <div className="greet">
         <h2>Welcome to Mood Minutes</h2>
         <p>Mood, swings. Let's observe it. Take some notes.</p>

@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     --primary-font: 'Playfair Display', serif;
     --secondary-font: 'Lato', sans-serif;
     --accent-color: #ffc800;
+    --code-red: #e63946da;
 }
 
 html {
@@ -42,6 +43,10 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+
+    @media (max-width: 600px) {
+        width: 95%;
+    }
 }
 
 #loading-indicator {
@@ -70,5 +75,12 @@ button {
     border: 0;
     cursor: pointer;
     background-color: inherit;
+}
+
+#back-home-link {
+    font-size: 1.85rem;
+    background-color: #000;
+    color: var(--accent-color);
+    border-radius: 500px;
 }
 `;
