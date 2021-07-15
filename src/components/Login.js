@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import jumping from "../images/open-doodles-jumping.svg";
 import { FiArrowLeftCircle } from "react-icons/fi";
+import { AuthContext } from "../context/AuthContext";
+import Toast from "./Toast";
 
 const StyledLoginSection = styled.section`
   width: 100%;
@@ -61,11 +63,33 @@ const StyledLoginForm = styled.form`
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState(null);
+  const history = useHistory();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      setPending(true);
+      setError("");
+      await login(email, password);
+      history.push("/moodSpace");
+    } catch (err) {
+      setError(err);
+    }
+  };
+
   return (
     <StyledLoginSection>
+      {error && <Toast msg={error} />}
       <h2>login to your mood</h2>
       <img src={jumping} alt="jumping doodle" id="jumping-doodle" />
-      <StyledLoginForm className="sign-up-form">
+      <StyledLoginForm
+        className="sign-up-form"
+        onSubmit={(e) => handleLogin(e)}
+      >
         <input
           type="email"
           placeholder="your email"

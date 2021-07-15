@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FiArrowLeftCircle } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../context/AuthContext";
 import ballet from "../images/open-doodles-ballet.svg";
@@ -67,7 +67,8 @@ const SignUp = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState(null);
-  const { authUser, signup } = useContext(AuthContext);
+  const { signup } = useContext(AuthContext);
+  const history = useHistory();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -80,7 +81,7 @@ const SignUp = () => {
       setError("");
       setPending(true);
       await signup(email, password);
-      console.log("user signed in successfully");
+      history.push("/moodSpace");
     } catch (err) {
       setError(err);
     }

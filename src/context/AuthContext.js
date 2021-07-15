@@ -1,10 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/initFirebase";
 
 export const AuthContext = createContext({
   authUser: null,
   loading: false,
   signup: async () => {},
+  login: async () => {},
 });
 
 export const AuthProvider = ({ children }) => {
@@ -13,6 +14,8 @@ export const AuthProvider = ({ children }) => {
 
   const signup = (email, password) =>
     auth.createUserWithEmailAndPassword(email, password);
+  const login = (email, password) =>
+    auth.signInWithEmailAndPassword(email, password);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -26,6 +29,7 @@ export const AuthProvider = ({ children }) => {
     authUser,
     loading,
     signup,
+    login,
   };
 
   return (
