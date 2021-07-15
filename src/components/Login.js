@@ -75,7 +75,7 @@ const Login = () => {
       setPending(true);
       setError("");
       await login(email, password);
-      history.push("/moodSpace");
+      history.push("/moodspace");
     } catch (err) {
       setError(err);
     }

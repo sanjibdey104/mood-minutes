@@ -15,7 +15,7 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/" component={Welcome} />
-              <Route exact path="/moodSpace" component={MoodSpace} />
+              <Route exact path="/moodspace" component={MoodSpace} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
             </Switch>

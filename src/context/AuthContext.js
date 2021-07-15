@@ -6,6 +6,7 @@ export const AuthContext = createContext({
   loading: false,
   signup: async () => {},
   login: async () => {},
+  logout: async () => {},
 });
 
 export const AuthProvider = ({ children }) => {
@@ -16,6 +17,7 @@ export const AuthProvider = ({ children }) => {
     auth.createUserWithEmailAndPassword(email, password);
   const login = (email, password) =>
     auth.signInWithEmailAndPassword(email, password);
+  const logout = auth.signOut();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -30,6 +32,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     signup,
     login,
+    logout,
   };
 
   return (

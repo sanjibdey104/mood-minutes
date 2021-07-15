@@ -81,7 +81,7 @@ const SignUp = () => {
       setError("");
       setPending(true);
       await signup(email, password);
-      history.push("/moodSpace");
+      history.push("/moodspace");
     } catch (err) {
       setError(err);
     }
