@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
     auth.createUserWithEmailAndPassword(email, password);
   const login = (email, password) =>
     auth.signInWithEmailAndPassword(email, password);
-  const logout = auth.signOut();
+  const logout = () => auth.signOut();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
