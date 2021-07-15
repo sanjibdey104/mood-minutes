@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import relaxed from "../images/relaxed.png";
 import swinging from "../images/open-doodles-swinging.svg";
+import { Link } from "react-router-dom";
 
 const StyledWelcomeSection = styled.section`
   width: 100%;
@@ -63,8 +63,12 @@ const Welcome = () => {
         <p>Mood, swings. Let's observe it. Take some notes.</p>
       </div>
       <div className="cta">
-        <button id="to-login">Login</button>
-        <button id="to-signup">Sign Up</button>
+        <Link to="/login">
+          <button id="to-login">Login</button>
+        </Link>
+        <Link to="/signup">
+          <button id="to-signup">Sign Up</button>
+        </Link>
       </div>
     </StyledWelcomeSection>
   );
