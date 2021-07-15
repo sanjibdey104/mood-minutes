@@ -35,14 +35,14 @@ const StyledSignUpForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 
   input {
     width: 18rem;
     font-size: 1.1rem;
     padding: 0.2rem 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid black;
+    border: 0;
+    border-bottom: 1px solid black;
   }
 
   #signup-button {
@@ -118,7 +118,7 @@ const SignUp = () => {
         />
         <input
           type="password"
-          placeholder="repeat password"
+          placeholder="repeat that password"
           value={passwordConfirm}
           onChange={(e) => setPasswordConfirm(e.target.value)}
           autoComplete="off"

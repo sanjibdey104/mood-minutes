@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import swinging from "../images/open-doodles-swinging.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { SiGoogle } from "react-icons/si";
 
 const StyledWelcomeSection = styled.section`
   width: 80%;
@@ -34,7 +36,8 @@ const StyledWelcomeSection = styled.section`
   }
 
   #to-login,
-  #to-signup {
+  #to-signup,
+  #google-auth-signin {
     padding: 0.5rem;
     width: 6rem;
     font-size: 1rem;
@@ -48,6 +51,14 @@ const StyledWelcomeSection = styled.section`
     }
   }
 
+  #google-auth-signin {
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
   #cover-art {
     width: clamp(12rem, 15vw, 25rem);
     margin: 0 auto;
@@ -55,6 +66,14 @@ const StyledWelcomeSection = styled.section`
 `;
 
 const Welcome = () => {
+  const { signInWithGoogle } = useContext(AuthContext);
+  const history = useHistory();
+
+  const handleGoogleSignin = async () => {
+    await signInWithGoogle();
+    history.push("/moodspace");
+  };
+
   return (
     <StyledWelcomeSection>
       <img src={swinging} alt="relaxed doodle" id="cover-art" />
@@ -70,6 +89,9 @@ const Welcome = () => {
           <button id="to-signup">Sign Up</button>
         </Link>
       </div>
+      <button id="google-auth-signin" onClick={() => handleGoogleSignin()}>
+        <SiGoogle /> Continue with Google
+      </button>
     </StyledWelcomeSection>
   );
 };
