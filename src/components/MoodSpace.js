@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../context/AuthContext";
@@ -10,8 +10,19 @@ const StyledMoodSpace = styled.section`
   display: grid;
   place-content: center;
 
-  p {
-    font-size: 1.2rem;
+  #mood-input {
+    padding: 0.2rem 0.75rem;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+
+    border: 0;
+    border-bottom: 1px solid black;
+  }
+
+  #mood-description {
+    font-size: 1.1rem;
+    padding: 0.3rem 0.75rem;
+    border: 0;
   }
 
   #logout-button {
@@ -33,6 +44,7 @@ const StyledMoodSpace = styled.section`
 const MoodSpace = () => {
   const { logout } = useContext(AuthContext);
   const history = useHistory();
+  const [mood, setMood] = useState("");
 
   const handleLogout = async () => {
     await logout();
@@ -41,7 +53,22 @@ const MoodSpace = () => {
 
   return (
     <StyledMoodSpace>
-      <p>this is you mood space</p>
+      <p>Hi, user</p>
+      <input
+        type="text"
+        id="mood-input"
+        placeholder="How's your mood today?"
+        value={mood}
+        onChange={(e) => setMood(e.target.value)}
+      />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="5"
+        placeholder="want to tell more?"
+        id="mood-description"
+      ></textarea>
       <button id="logout-button" onClick={() => handleLogout()}>
         log out
       </button>
