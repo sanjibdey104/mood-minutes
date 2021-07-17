@@ -1,19 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const data = {
-  labels: ["12", "13", "14", "15", "16", "17"],
-  datasets: [
-    {
-      label: "mood swing",
-      data: [0, 2, 1, 4, 5, 3],
-      fill: false,
-      backgroundColor: "#023e8a",
-      borderColor: "#90e0ef",
-    },
-  ],
-};
-
 const options = {
   responsive: true,
   scales: {
@@ -40,6 +27,8 @@ const options = {
               return "happy";
             case 6:
               return "cool";
+            default:
+              return null;
           }
         },
         color: "#023e8a",
@@ -48,7 +37,20 @@ const options = {
   },
 };
 
-const MoodChart = () => {
+const MoodChart = ({ moodData, sevenDaysLabel }) => {
+  const data = {
+    labels: sevenDaysLabel,
+    datasets: [
+      {
+        label: "mood swing",
+        data: moodData,
+        fill: false,
+        backgroundColor: "#023e8a",
+        borderColor: "#90e0ef",
+      },
+    ],
+  };
+
   return <Line data={data} options={options} />;
 };
 
