@@ -7,6 +7,7 @@ const StyledMoodLogs = styled.section`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  margin-bottom: 2rem;
 
   #title {
     font-size: 1.2rem;
@@ -22,6 +23,7 @@ const StyledMoodLogs = styled.section`
 `;
 
 const MoodLogs = ({ moodLogs }) => {
+  console.log(typeof moodLogs[0].code);
   return (
     <StyledMoodLogs>
       <p id="title">Your recent mood logs</p>

@@ -123,43 +123,52 @@ const StyledMoodForm = styled.form`
 const MoodForm = () => {
   const { authUser } = useContext(AuthContext);
   const [mood, setMood] = useState("");
+  const [code, setCode] = useState(null);
   const [moodMojiSrc, setMoodMojiSrc] = useState("");
   const [moodShortDesc, setMoodShortDesc] = useState("");
   const [moodLongDesc, setMoodLongDesc] = useState("");
 
   const moodMojis = [
     {
-      mood: "happy",
-      src: happy,
-    },
-    {
-      mood: "neutral",
-      src: neutral,
-    },
-    {
       mood: "sad",
       src: sad,
-    },
-    {
-      mood: "angry",
-      src: angry,
-    },
-    {
-      mood: "confused",
-      src: confused,
-    },
-    {
-      mood: "cool",
-      src: cool,
+      code: 0,
     },
     {
       mood: "nervous",
       src: nervous,
+      code: 1,
+    },
+    {
+      mood: "angry",
+      src: angry,
+      code: 2,
+    },
+    {
+      mood: "confused",
+      src: confused,
+      code: 3,
+    },
+    {
+      mood: "neutral",
+      src: neutral,
+      code: 4,
+    },
+    {
+      mood: "happy",
+      src: happy,
+      code: 5,
+    },
+    {
+      mood: "cool",
+      src: cool,
+      code: 6,
     },
   ];
 
-  const handleMood = (mood, src) => {
+  const handleMood = (mood, code, src) => {
     setMood(mood);
+    setCode(code);
     setMoodMojiSrc(src);
   };
 
@@ -167,6 +176,7 @@ const MoodForm = () => {
     e.preventDefault();
     const currentMoodLog = {
       mood,
+      code,
       moodShortDesc,
       moodLongDesc,
       moodMojiSrc,
@@ -196,11 +206,11 @@ const MoodForm = () => {
       </section>
 
       <div className="moodmojis">
-        {moodMojis.map(({ mood, src }) => (
+        {moodMojis.map(({ mood, code, src }) => (
           <li
             className="emoji-face"
             data-tooltip={mood}
-            onClick={() => handleMood(mood, src)}
+            onClick={() => handleMood(mood, code, src)}
             key={mood}
           >
             <img src={src} alt="emoji face" id={mood} className="mood-moji" />

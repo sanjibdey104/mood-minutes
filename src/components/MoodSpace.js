@@ -7,6 +7,7 @@ import MoodForm from "./MoodForm";
 import MoodLogs from "./MoodLogs";
 import { FetchMoodLogs } from "../data/MoodLogsData";
 import meditating from "../images/open-doodles-meditating.svg";
+import MoodChart from "./MoodChart";
 
 const StyledMoodSpace = styled.section`
   width: 100%;
@@ -66,6 +67,19 @@ const StyledMoodSpace = styled.section`
       }
     }
   }
+
+  .mood-chart {
+    width: clamp(20rem, 50vw, 40rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+    h3 {
+      font-weight: lighter;
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const MoodSpace = () => {
@@ -90,12 +104,13 @@ const MoodSpace = () => {
           log out
         </button>
       </div>
-
       <img src={meditating} alt="meditating mood" id="meditating-doodle" />
-
       <MoodForm />
-
       <MoodLogs moodLogs={moodLogs} />
+      <div className="mood-chart">
+        <h3>Here's your mood chart</h3>
+        <MoodChart />
+      </div>
     </StyledMoodSpace>
   );
 };
