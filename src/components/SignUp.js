@@ -20,6 +20,7 @@ const StyledSignUpSection = styled.section`
 
   #ballet-doodle {
     width: clamp(12rem, 15vw, 25rem);
+    color: white;
   }
 
   h2 {

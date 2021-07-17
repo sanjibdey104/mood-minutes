@@ -79,6 +79,7 @@ const Login = () => {
     } catch (err) {
       setError(err);
     }
+    setPending(false);
   };
 
   if (authUser) {

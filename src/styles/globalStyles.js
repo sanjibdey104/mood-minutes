@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 :root {
     --primary-font: 'Playfair Display', serif;
-    --secondary-font: 'Lato', sans-serif;
+    --secondary-font: 'Poppins', sans-serif;
     --accent-color: #ffc800;
     --code-red: #e63946da;
 }
@@ -37,7 +37,7 @@ body {
 .container {
     width: 80%;
     margin: 0 auto;
-    height: 100%;
+    min-height: 100%;
     
     display: flex;
     flex-direction: column;

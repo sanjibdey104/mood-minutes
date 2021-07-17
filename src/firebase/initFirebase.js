@@ -11,13 +11,13 @@ var firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 // Initialize Firebase
-function initFirebase() {
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-}
+// function initFirebase() {
+//   if (!firebase.apps.length) {
+//   }
+// }
+firebase.initializeApp(firebaseConfig);
 
-initFirebase();
+// initFirebase();
 
 export const auth = firebase.auth();
 export const db = firebase.firestore();
