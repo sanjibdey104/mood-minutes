@@ -43,12 +43,7 @@ const StyledWelcomeSection = styled.section`
     font-size: 1rem;
     background-color: var(--accent-color);
     border-radius: 0.5rem;
-    box-shadow: 3px 3px #000;
-    transition: all 200ms ease-in-out;
-
-    &:hover {
-      box-shadow: 2px 2px #000;
-    }
+    box-shadow: var(--box-shadow);
   }
 
   #google-auth-signin {

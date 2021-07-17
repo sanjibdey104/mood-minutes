@@ -32,7 +32,7 @@ const StyledMoodForm = styled.form`
     padding: 0.85rem;
 
     margin-bottom: 2rem;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
 
     display: flex;
     align-items: center;
@@ -105,7 +105,7 @@ const StyledMoodForm = styled.form`
     border-radius: 0.5rem;
 
     border: 0;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
 
     max-height: 0;
     overflow: none;

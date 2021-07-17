@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import MoodForm from "./MoodForm";
 import MoodLogs from "./MoodLogs";
 import { FetchMoodLogs } from "../data/MoodLogsData";
+import meditating from "../images/open-doodles-meditating.svg";
 
 const StyledMoodSpace = styled.section`
   width: 100%;
@@ -14,7 +15,7 @@ const StyledMoodSpace = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
 
   .header {
     width: 100%;
@@ -35,11 +36,34 @@ const StyledMoodSpace = styled.section`
 
     background-color: var(--accent-color);
     border-radius: 0.5rem;
-    box-shadow: 3px 3px #000;
+    box-shadow: var(--box-shadow);
     transition: all 200ms ease-in-out;
 
     &:hover {
       box-shadow: 2px 2px #000;
+    }
+  }
+
+  #meditating-doodle {
+    width: clamp(10rem, 15vw, 16rem);
+    animation: meditate 3s linear 0s infinite;
+
+    @keyframes meditate {
+      0% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(5%);
+      }
+      50% {
+        transform: translateY(10%);
+      }
+      75% {
+        transform: translateY(5%);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
   }
 `;
@@ -66,6 +90,8 @@ const MoodSpace = () => {
           log out
         </button>
       </div>
+
+      <img src={meditating} alt="meditating mood" id="meditating-doodle" />
 
       <MoodForm />
 

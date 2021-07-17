@@ -8,10 +8,9 @@ const StyledMoodLog = styled.li`
   position: relative;
 
   padding: 0.5rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(to right, #9866f9, #9d4edd);
+  box-shadow: var(--box-shadow);
   font-family: var(--secondary-font);
-  color: #fff;
+  background: linear-gradient(45deg, #ade8f4, #90e0ef);
 
   display: flex;
   flex-direction: column;

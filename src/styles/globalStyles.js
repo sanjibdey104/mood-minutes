@@ -7,6 +7,9 @@ export const GlobalStyles = createGlobalStyle`
     --secondary-font: 'Poppins', sans-serif;
     --accent-color: #ffc800;
     --code-red: #e63946da;
+    --box-shadow: rgba(50, 50, 90, 0.25) 0px 8px 10px -5px,
+      rgba(0, 0, 0, 0.2) 0px 8px 10px -8px,
+      rgba(10, 40, 50, 0.2) 0px -2px 5px 0px inset;;
 }
 
 html {
@@ -23,7 +26,7 @@ html {
 body {
     width: 100%;
     height: 100vh;
-    background-color: #fff;
+    background-color: #ffffffda;
     color: #000;
     line-height: 1.4;
     font-family: var(--primary-font);
