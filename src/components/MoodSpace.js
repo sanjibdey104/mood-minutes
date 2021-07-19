@@ -69,7 +69,7 @@ const StyledMoodSpace = styled.section`
   }
 
   .mood-chart {
-    width: clamp(20rem, 50vw, 40rem);
+    width: clamp(22rem, 50vw, 40rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,7 +133,7 @@ const MoodSpace = () => {
       <MoodForm />
       <MoodLogs moodLogs={moodLogs} />
       <div className="mood-chart">
-        <h3>Here's your mood chart</h3>
+        <h3>Last 7 days mood chart</h3>
         <MoodChart moodData={filteredMoodData} sevenDaysLabel={lastSevenDays} />
       </div>
     </StyledMoodSpace>

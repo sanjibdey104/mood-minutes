@@ -1,5 +1,9 @@
+import { Chart } from "chart.js";
 import React from "react";
 import { Line } from "react-chartjs-2";
+
+Chart.defaults.font.family = "'Playfair Display', serif";
+Chart.defaults.font.size = 15;
 
 const options = {
   responsive: true,
@@ -40,17 +44,21 @@ const options = {
 const MoodChart = ({ moodData, sevenDaysLabel }) => {
   const data = {
     labels: sevenDaysLabel,
+    showLines: true,
     datasets: [
       {
         label: "mood swing",
         data: moodData,
-        fill: false,
-        backgroundColor: "#023e8a",
-        borderColor: "#90e0ef",
+        fill: true,
+        borderColor: "#b7e4c7",
+        pointBackgroundColor: "#4895ef",
+        pointRadius: 6,
+        spanGaps: true,
+        showLine: true,
+        tension: 0,
       },
     ],
   };
-
   return <Line data={data} options={options} />;
 };
 
