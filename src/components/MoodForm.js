@@ -1,18 +1,10 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
+import { AuthContext } from "../context/AuthContext";
 import firebase from "firebase/app";
 import { db } from "../firebase/initFirebase";
 import { MdAdd } from "react-icons/md";
-
-// mood emojis
-import cool from "../images/emojis/cool.png";
-import sad from "../images/emojis/sad.png";
-import happy from "../images/emojis/happy.png";
-import nervous from "../images/emojis/nervous.png";
-import neutral from "../images/emojis/neutral.png";
-import angry from "../images/emojis/angry.png";
-import confused from "../images/emojis/confused.png";
-import { AuthContext } from "../context/AuthContext";
+import MoodMojis from "./MoodMojis";
+import styled from "styled-components";
 
 const StyledMoodForm = styled.form`
   min-width: 50%;
@@ -21,17 +13,16 @@ const StyledMoodForm = styled.form`
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
 
   #greet {
     font-size: 1.2rem;
+    margin-bottom: -2rem;
   }
 
   .mood-input-section {
     border-radius: 10rem;
     padding: 0.85rem;
-
-    margin-bottom: 2rem;
     box-shadow: var(--box-shadow);
 
     display: flex;
@@ -59,51 +50,6 @@ const StyledMoodForm = styled.form`
     place-content: center;
   }
 
-  .moodmojis {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
-
-    li {
-      position: relative;
-      list-style: none;
-      padding: 0.3rem;
-      border-radius: 0.5rem;
-
-      &.selected {
-        background-color: #ade8f4;
-      }
-
-      &::after {
-        content: attr(data-tooltip);
-        display: inline-block;
-
-        width: auto;
-        height: 2rem;
-        font-size: 0.85rem;
-        font-family: var(--secondary-font);
-
-        position: absolute;
-        bottom: -80%;
-        left: 50%;
-        transform: translateX(-50%) scale(0);
-        transition: transform 200ms ease-in-out;
-      }
-
-      &:hover::after,
-      &:focus::after {
-        transform: translateX(-50%) scale(1);
-      }
-    }
-    .mood-moji {
-      width: clamp(1.85rem, 5vw, 2.5rem);
-      cursor: pointer;
-    }
-  }
-
   #mood-description {
     font-size: 1.2rem;
     padding: 0.3rem 0.75rem;
@@ -128,56 +74,12 @@ const StyledMoodForm = styled.form`
 const MoodForm = () => {
   const { authUser } = useContext(AuthContext);
   const [mood, setMood] = useState("");
-  const [selectedEmoji, setSelectedEmoji] = useState(5);
   const [code, setCode] = useState(null);
   const [moodMojiSrc, setMoodMojiSrc] = useState("");
   const [moodShortDesc, setMoodShortDesc] = useState("");
   const [moodLongDesc, setMoodLongDesc] = useState("");
 
-  const moodMojis = [
-    {
-      mood: "sad",
-      src: sad,
-      code: 0,
-    },
-    {
-      mood: "nervous",
-      src: nervous,
-      code: 1,
-    },
-    {
-      mood: "angry",
-      src: angry,
-      code: 2,
-    },
-    {
-      mood: "confused",
-      src: confused,
-      code: 3,
-    },
-    {
-      mood: "neutral",
-      src: neutral,
-      code: 4,
-    },
-    {
-      mood: "happy",
-      src: happy,
-      code: 5,
-    },
-    {
-      mood: "cool",
-      src: cool,
-      code: 6,
-    },
-  ];
-
-  const handleMood = (index, mood, code, src) => {
-    setSelectedEmoji(index);
-    setMood(mood);
-    setCode(code);
-    setMoodMojiSrc(src);
-  };
+  const moodMethods = { setMood, setCode, setMoodMojiSrc };
 
   const submitMoodLog = (e) => {
     e.preventDefault();
@@ -212,18 +114,7 @@ const MoodForm = () => {
         </button>
       </section>
 
-      <div className="moodmojis">
-        {moodMojis.map(({ mood, code, src }, index) => (
-          <li
-            data-tooltip={mood}
-            onClick={() => handleMood(index, mood, code, src)}
-            key={mood}
-            className={index === selectedEmoji ? "selected" : null}
-          >
-            <img src={src} alt="emoji face" className="mood-moji" />
-          </li>
-        ))}
-      </div>
+      <MoodMojis moodMethods={moodMethods} />
 
       <textarea
         name="mood-description"
