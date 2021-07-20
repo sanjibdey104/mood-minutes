@@ -10,6 +10,7 @@ export const FetchMoodLogs = () => {
   useEffect(() => {
     const unsubscribe = db
       .collection(`/users/${uid}/moodLogs`)
+      .orderBy("loggedAt", "desc")
       .onSnapshot((querySnapshot) => {
         let logs = querySnapshot.docs.map((doc) => ({
           ...doc.data(),

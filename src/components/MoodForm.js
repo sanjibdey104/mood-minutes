@@ -68,8 +68,14 @@ const StyledMoodForm = styled.form`
     margin-bottom: 1rem;
 
     li {
-      list-style: none;
       position: relative;
+      list-style: none;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+
+      &.selected {
+        background-color: #ade8f4;
+      }
 
       &::after {
         content: attr(data-tooltip);
@@ -92,7 +98,6 @@ const StyledMoodForm = styled.form`
         transform: translateX(-50%) scale(1);
       }
     }
-
     .mood-moji {
       width: clamp(1.85rem, 5vw, 2.5rem);
       cursor: pointer;
@@ -123,6 +128,7 @@ const StyledMoodForm = styled.form`
 const MoodForm = () => {
   const { authUser } = useContext(AuthContext);
   const [mood, setMood] = useState("");
+  const [selectedEmoji, setSelectedEmoji] = useState(5);
   const [code, setCode] = useState(null);
   const [moodMojiSrc, setMoodMojiSrc] = useState("");
   const [moodShortDesc, setMoodShortDesc] = useState("");
@@ -166,7 +172,8 @@ const MoodForm = () => {
     },
   ];
 
-  const handleMood = (mood, code, src) => {
+  const handleMood = (index, mood, code, src) => {
+    setSelectedEmoji(index);
     setMood(mood);
     setCode(code);
     setMoodMojiSrc(src);
@@ -206,14 +213,14 @@ const MoodForm = () => {
       </section>
 
       <div className="moodmojis">
-        {moodMojis.map(({ mood, code, src }) => (
+        {moodMojis.map(({ mood, code, src }, index) => (
           <li
-            className="emoji-face"
             data-tooltip={mood}
-            onClick={() => handleMood(mood, code, src)}
+            onClick={() => handleMood(index, mood, code, src)}
             key={mood}
+            className={index === selectedEmoji ? "selected" : null}
           >
-            <img src={src} alt="emoji face" id={mood} className="mood-moji" />
+            <img src={src} alt="emoji face" className="mood-moji" />
           </li>
         ))}
       </div>

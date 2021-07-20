@@ -90,31 +90,6 @@ const MoodSpace = () => {
   const dt = new Date();
   const today = dayjs(dt).format("ddd, MMM DD");
 
-  let lastSevenDays = [];
-  for (var i = 0; i < 7; i++) {
-    var t = new Date();
-    t.setDate(t.getDate() - i);
-    lastSevenDays.push(t.getDate());
-  }
-  lastSevenDays = lastSevenDays.sort();
-
-  const updatedMoodLogs = moodLogs
-    .map((log) => ({
-      ...log,
-      loggedAt: Number(dayjs(log.loggedAt.toDate()).format("DD")),
-    }))
-    .slice()
-    .sort((a, b) => a.loggedAt - b.loggedAt);
-
-  let rawMoodData = lastSevenDays.map((day) =>
-    updatedMoodLogs.find((log) => log.loggedAt === day)
-  );
-
-  const filteredMoodData = rawMoodData.map((item) => {
-    if (item === undefined) return null;
-    else return item.code;
-  });
-
   const handleLogout = async () => {
     await logout();
     history.push("/");
@@ -134,7 +109,7 @@ const MoodSpace = () => {
       <MoodLogs moodLogs={moodLogs} />
       <div className="mood-chart">
         <h3>Last 7 days mood chart</h3>
-        <MoodChart moodData={filteredMoodData} sevenDaysLabel={lastSevenDays} />
+        <MoodChart moodLogs={moodLogs} />
       </div>
     </StyledMoodSpace>
   );
