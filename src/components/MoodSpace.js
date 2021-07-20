@@ -8,6 +8,7 @@ import MoodLogs from "./MoodLogs";
 import { FetchMoodLogs } from "../data/MoodLogsData";
 import meditating from "../images/open-doodles-meditating.svg";
 import MoodChart from "./MoodChart";
+import Logo from "./Logo";
 
 const StyledMoodSpace = styled.section`
   width: 100%;
@@ -88,7 +89,7 @@ const MoodSpace = () => {
   return (
     <StyledMoodSpace>
       <div className="header">
-        <p id="logo">MdMn</p>
+        <Logo />
         <p id="time">{today}</p>
         <button id="logout-button" onClick={() => handleLogout()}>
           log out
