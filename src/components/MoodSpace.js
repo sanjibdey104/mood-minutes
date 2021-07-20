@@ -106,7 +106,7 @@ const MoodSpace = () => {
       </div>
       <img src={meditating} alt="meditating mood" id="meditating-doodle" />
       <MoodForm />
-      <MoodLogs moodLogs={moodLogs} />
+      <MoodLogs moodLogs={moodLogs.slice(0, 4)} />
       <div className="mood-chart">
         <h3>Last 7 days mood chart</h3>
         <MoodChart moodLogs={moodLogs} />
