@@ -10,7 +10,7 @@ const StyledMoodLog = styled.li`
   padding: 0.5rem;
   box-shadow: var(--box-shadow);
   font-family: var(--secondary-font);
-  background: linear-gradient(45deg, #ade8f4, #90e0ef);
+  background: linear-gradient(45deg, #cebeff, #c4baff);
 
   display: flex;
   flex-direction: column;
