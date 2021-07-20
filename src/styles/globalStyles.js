@@ -9,7 +9,10 @@ export const GlobalStyles = createGlobalStyle`
     --code-red: #e63946da;
     --box-shadow: rgba(50, 50, 90, 0.25) 0px 8px 10px -5px,
       rgba(0, 0, 0, 0.2) 0px 8px 10px -8px,
-      rgba(10, 40, 50, 0.2) 0px -2px 5px 0px inset;;
+      rgba(10, 40, 50, 0.2) 0px -2px 5px 0px inset;
+    --hover-box-shadow: rgba(50, 50, 90, 0.25) 0px 3px 5px -3px,
+      rgba(0, 0, 0, 0.2) 0px 3px 5px -3px,
+      rgba(10, 40, 50, 0.2) 0px -1px 3px 0px inset;
 }
 
 html {
@@ -81,10 +84,30 @@ button {
     background-color: inherit;
 }
 
+#to-login, 
+#to-signup, 
+#google-auth-signin, 
+#login-button, 
+#logout-button, 
+#signup-button, 
 #back-home-link {
-    font-size: 1.85rem;
-    background-color: #000;
-    color: var(--accent-color);
-    border-radius: 500px;
+    padding: 0.5rem;
+    width: 6rem;
+    font-size: 1rem;
+
+    border-radius: 0.5rem;
+    background-color: var(--accent-color);
+    box-shadow: var(--box-shadow);
+    transition: all 200ms ease-in-out;
+
+    &:hover, &:focus {
+      box-shadow: var(--hover-box-shadow);
+    }
+  }
+
+#back-home-link {
+    width: 3rem;
+    color: #000;
+    font-size: 2rem;
 }
 `;

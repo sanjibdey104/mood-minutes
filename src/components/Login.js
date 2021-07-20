@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import jumping from "../images/open-doodles-jumping.svg";
-import { FiArrowLeftCircle } from "react-icons/fi";
+import { FiArrowLeftCircle, FiChevronLeft } from "react-icons/fi";
+import { FaChevronLeft } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 import Toast from "./Toast";
 
@@ -42,21 +43,6 @@ const StyledLoginForm = styled.form`
     padding: 0.2rem 0.75rem;
     border-radius: 0.5rem;
     border: 1px solid black;
-  }
-
-  #login-button {
-    padding: 0.5rem;
-    width: 6rem;
-    font-size: 1rem;
-
-    background-color: var(--accent-color);
-    border-radius: 0.5rem;
-    box-shadow: 3px 3px #000;
-    transition: all 200ms ease-in-out;
-
-    &:hover {
-      box-shadow: 2px 2px #000;
-    }
   }
 `;
 
@@ -115,7 +101,7 @@ const Login = () => {
         </button>
       </StyledLoginForm>
       <Link to="/">
-        <FiArrowLeftCircle id="back-home-link" />
+        <FiChevronLeft id="back-home-link" />
       </Link>
     </StyledLoginSection>
   );

@@ -33,16 +33,6 @@ const StyledMoodSpace = styled.section`
   #logout-button {
     padding: 0.3rem;
     width: 4.5rem;
-    font-size: 1rem;
-
-    background-color: var(--accent-color);
-    border-radius: 0.5rem;
-    box-shadow: var(--box-shadow);
-    transition: all 200ms ease-in-out;
-
-    &:hover {
-      box-shadow: 2px 2px #000;
-    }
   }
 
   #meditating-doodle {

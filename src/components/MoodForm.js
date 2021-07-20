@@ -24,10 +24,16 @@ const StyledMoodForm = styled.form`
     border-radius: 10rem;
     padding: 0.85rem;
     box-shadow: var(--box-shadow);
+    transition: box-shadow 200ms ease-in-out;
 
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    &:hover,
+    &:focus {
+      box-shadow: var(--hover-box-shadow);
+    }
   }
 
   #mood-short-desc {
@@ -56,6 +62,7 @@ const StyledMoodForm = styled.form`
     border-radius: 0.5rem;
 
     border: 0;
+    outline: 0;
     box-shadow: var(--box-shadow);
 
     max-height: 0;
@@ -63,6 +70,11 @@ const StyledMoodForm = styled.form`
     resize: none;
     opacity: 0;
     transition: all 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      box-shadow: var(--hover-box-shadow);
+    }
 
     &.show {
       max-height: 10rem;

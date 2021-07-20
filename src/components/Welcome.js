@@ -35,17 +35,6 @@ const StyledWelcomeSection = styled.section`
     gap: 3rem;
   }
 
-  #to-login,
-  #to-signup,
-  #google-auth-signin {
-    padding: 0.5rem;
-    width: 6rem;
-    font-size: 1rem;
-    background-color: var(--accent-color);
-    border-radius: 0.5rem;
-    box-shadow: var(--box-shadow);
-  }
-
   #google-auth-signin {
     width: 15rem;
     display: flex;
