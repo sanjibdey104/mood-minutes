@@ -67,7 +67,7 @@ const Login = () => {
     setPending(false);
   };
 
-  if (authUser) {
+  if (!pending && authUser) {
     history.push("/moodspace");
   }
 
