@@ -2,8 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import jumping from "../images/open-doodles-jumping.svg";
-import { FiArrowLeftCircle, FiChevronLeft } from "react-icons/fi";
-import { FaChevronLeft } from "react-icons/fa";
+import { FiChevronLeft } from "react-icons/fi";
 import { AuthContext } from "../context/AuthContext";
 import Toast from "./Toast";
 
@@ -68,7 +67,7 @@ const Login = () => {
     setPending(false);
   };
 
-  if (authUser) {
+  if (!pending && authUser) {
     history.push("/moodspace");
   }
 
