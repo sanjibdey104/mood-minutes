@@ -50,13 +50,17 @@ const StyledWelcomeSection = styled.section`
 `;
 
 const Welcome = () => {
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { authUser, signInWithGoogle } = useContext(AuthContext);
   const history = useHistory();
 
   const handleGoogleSignin = async () => {
     await signInWithGoogle();
     history.push("/moodspace");
   };
+
+  if (authUser) {
+    history.push("/moodspace");
+  }
 
   return (
     <StyledWelcomeSection>
