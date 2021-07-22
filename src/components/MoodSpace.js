@@ -11,6 +11,7 @@ import meditating from "../images/open-doodles-meditating.svg";
 import WeeklyMoodChart from "../components/WeeklyMoodChart";
 import MoodFrequencyChart from "./MoodFrequencyChart";
 import { MoodDataProvider } from "../context/MoodContext";
+import Header from "./Header";
 
 const StyledMoodSpace = styled.section`
   width: 100%;
@@ -20,23 +21,6 @@ const StyledMoodSpace = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-
-  .header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0.5rem;
-  }
-
-  #time {
-    font-size: 1.1rem;
-  }
-
-  #logout-button {
-    padding: 0.3rem;
-    width: 4.5rem;
-  }
 
   #meditating-doodle {
     width: clamp(10rem, 15vw, 16rem);
@@ -85,58 +69,10 @@ const StyledMoodSpace = styled.section`
 `;
 
 const MoodSpace = () => {
-  const { logout } = useContext(AuthContext);
-  const moodLogs = FetchMoodLogs();
-  const moodMojis = [
-    {
-      mood: "sad",
-      code: 0,
-    },
-    {
-      mood: "nervous",
-      code: 1,
-    },
-    {
-      mood: "angry",
-      code: 2,
-    },
-    {
-      mood: "confused",
-      code: 3,
-    },
-    {
-      mood: "neutral",
-      code: 4,
-    },
-    {
-      mood: "happy",
-      code: 5,
-    },
-    {
-      mood: "cool",
-      code: 6,
-    },
-  ];
-  const history = useHistory();
-
-  const dt = new Date();
-  const today = dayjs(dt).format("ddd, MMM DD");
-
-  const handleLogout = async () => {
-    await logout();
-    history.push("/");
-  };
-
   return (
     <MoodDataProvider>
       <StyledMoodSpace>
-        <div className="header">
-          <Logo />
-          <p id="time">{today}</p>
-          <button id="logout-button" onClick={() => handleLogout()}>
-            log out
-          </button>
-        </div>
+        <Header />
         <img src={meditating} alt="meditating mood" id="meditating-doodle" />
         <MoodForm />
         <MoodLogs />
