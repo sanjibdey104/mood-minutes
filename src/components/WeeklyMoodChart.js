@@ -1,7 +1,7 @@
 import { Chart } from "chart.js";
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { moodChartData } from "../data/MoodChartData";
+import { weeklyMoodData } from "../data/WeeklyMoodData";
 
 Chart.defaults.font.family = "'Playfair Display', serif";
 Chart.defaults.font.size = 15;
@@ -40,17 +40,24 @@ const options = {
       },
     },
   },
+  plugins: {
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      enabled: false,
+    },
+  },
 };
 
 const MoodChart = ({ moodLogs }) => {
-  const { filteredMoodData, lastSevenDays } = moodChartData(moodLogs);
+  const { filteredMoodData, lastSevenDays } = weeklyMoodData(moodLogs);
 
   const data = {
     labels: lastSevenDays,
     showLines: true,
     datasets: [
       {
-        label: "mood swing",
         data: filteredMoodData,
         fill: false,
         borderColor: "#c4baff",

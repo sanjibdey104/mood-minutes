@@ -6,9 +6,10 @@ import { AuthContext } from "../context/AuthContext";
 import MoodForm from "./MoodForm";
 import MoodLogs from "./MoodLogs";
 import { FetchMoodLogs } from "../data/MoodLogsData";
-import meditating from "../images/open-doodles-meditating.svg";
-import MoodChart from "./MoodChart";
 import Logo from "./Logo";
+import meditating from "../images/open-doodles-meditating.svg";
+import WeeklyMoodChart from "../components/WeeklyMoodChart";
+import MoodFrequencyChart from "./MoodFrequencyChart";
 
 const StyledMoodSpace = styled.section`
   width: 100%;
@@ -59,16 +60,25 @@ const StyledMoodSpace = styled.section`
     }
   }
 
-  .mood-chart {
-    width: clamp(22rem, 50vw, 40rem);
+  .mood-charts {
+    width: clamp(22rem, 55vw, 45rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 5rem;
 
     h3 {
       font-weight: lighter;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    .weekly-mood-chart,
+    .mood-frequency-chart {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
     }
   }
 `;
@@ -76,6 +86,36 @@ const StyledMoodSpace = styled.section`
 const MoodSpace = () => {
   const { logout } = useContext(AuthContext);
   const moodLogs = FetchMoodLogs();
+  const moodMojis = [
+    {
+      mood: "sad",
+      code: 0,
+    },
+    {
+      mood: "nervous",
+      code: 1,
+    },
+    {
+      mood: "angry",
+      code: 2,
+    },
+    {
+      mood: "confused",
+      code: 3,
+    },
+    {
+      mood: "neutral",
+      code: 4,
+    },
+    {
+      mood: "happy",
+      code: 5,
+    },
+    {
+      mood: "cool",
+      code: 6,
+    },
+  ];
   const history = useHistory();
 
   const dt = new Date();
@@ -98,10 +138,16 @@ const MoodSpace = () => {
       <img src={meditating} alt="meditating mood" id="meditating-doodle" />
       <MoodForm />
       <MoodLogs moodLogs={moodLogs.slice(0, 4)} />
-      <div className="mood-chart">
-        <h3>Last 7 days mood chart</h3>
-        <MoodChart moodLogs={moodLogs} />
-      </div>
+      <section className="mood-charts">
+        <div className="weekly-mood-chart">
+          <h3>Weekly mood chart</h3>
+          <WeeklyMoodChart moodLogs={moodLogs} />
+        </div>
+        <div className="mood-frequency-chart">
+          <h3>Your mood frequency chart</h3>
+          <MoodFrequencyChart moodMojis={moodMojis} moodLogs={moodLogs} />
+        </div>
+      </section>
     </StyledMoodSpace>
   );
 };

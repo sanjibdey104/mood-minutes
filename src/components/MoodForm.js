@@ -5,6 +5,7 @@ import { db } from "../firebase/initFirebase";
 import { MdAdd } from "react-icons/md";
 import MoodMojis from "./MoodMojis";
 import styled from "styled-components";
+import happy from "../images/emojis/happy.png";
 
 const StyledMoodForm = styled.form`
   min-width: 50%;
@@ -85,9 +86,9 @@ const StyledMoodForm = styled.form`
 
 const MoodForm = () => {
   const { authUser } = useContext(AuthContext);
-  const [mood, setMood] = useState("");
-  const [code, setCode] = useState(null);
-  const [moodMojiSrc, setMoodMojiSrc] = useState("");
+  const [mood, setMood] = useState("happy");
+  const [code, setCode] = useState(5);
+  const [moodMojiSrc, setMoodMojiSrc] = useState(happy);
   const [moodShortDesc, setMoodShortDesc] = useState("");
   const [moodLongDesc, setMoodLongDesc] = useState("");
 

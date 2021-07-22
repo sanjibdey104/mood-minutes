@@ -1,12 +1,13 @@
 import dayjs from "dayjs";
 
-export const moodChartData = (moodLogs) => {
+export const weeklyMoodData = (moodLogs) => {
   // set the last seven days
   let lastSevenDays = [];
   for (let i = 0; i < 7; i++) {
     let t = new Date();
     t.setDate(t.getDate() - i);
     lastSevenDays.push(t.getDate());
+    // lastSevenDays.push(`${t.getDate()}th`);
   }
   lastSevenDays = lastSevenDays.sort();
 
