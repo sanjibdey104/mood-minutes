@@ -32,7 +32,8 @@ const StyledMoodForm = styled.form`
     gap: 1rem;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:focus-within {
       box-shadow: var(--hover-box-shadow);
     }
   }
