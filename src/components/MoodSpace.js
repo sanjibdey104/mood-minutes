@@ -10,6 +10,7 @@ import Logo from "./Logo";
 import meditating from "../images/open-doodles-meditating.svg";
 import WeeklyMoodChart from "../components/WeeklyMoodChart";
 import MoodFrequencyChart from "./MoodFrequencyChart";
+import { MoodDataProvider } from "../context/MoodContext";
 
 const StyledMoodSpace = styled.section`
   width: 100%;
@@ -127,28 +128,30 @@ const MoodSpace = () => {
   };
 
   return (
-    <StyledMoodSpace>
-      <div className="header">
-        <Logo />
-        <p id="time">{today}</p>
-        <button id="logout-button" onClick={() => handleLogout()}>
-          log out
-        </button>
-      </div>
-      <img src={meditating} alt="meditating mood" id="meditating-doodle" />
-      <MoodForm />
-      <MoodLogs moodLogs={moodLogs.slice(0, 4)} />
-      <section className="mood-charts">
-        <div className="weekly-mood-chart">
-          <h3>Weekly mood chart</h3>
-          <WeeklyMoodChart moodLogs={moodLogs} />
+    <MoodDataProvider>
+      <StyledMoodSpace>
+        <div className="header">
+          <Logo />
+          <p id="time">{today}</p>
+          <button id="logout-button" onClick={() => handleLogout()}>
+            log out
+          </button>
         </div>
-        <div className="mood-frequency-chart">
-          <h3>Your mood frequency chart</h3>
-          <MoodFrequencyChart moodMojis={moodMojis} moodLogs={moodLogs} />
-        </div>
-      </section>
-    </StyledMoodSpace>
+        <img src={meditating} alt="meditating mood" id="meditating-doodle" />
+        <MoodForm />
+        <MoodLogs />
+        <section className="mood-charts">
+          <div className="weekly-mood-chart">
+            <h3>Weekly mood chart</h3>
+            <WeeklyMoodChart />
+          </div>
+          <div className="mood-frequency-chart">
+            <h3>Your mood frequency chart</h3>
+            <MoodFrequencyChart />
+          </div>
+        </section>
+      </StyledMoodSpace>
+    </MoodDataProvider>
   );
 };
 

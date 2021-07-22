@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { MoodDataContext, MoodDataProvider } from "../context/MoodContext";
 import MoodLog from "./MoodLog";
 
 const StyledMoodLogs = styled.section`
@@ -22,7 +23,12 @@ const StyledMoodLogs = styled.section`
   }
 `;
 
-const MoodLogs = ({ moodLogs }) => {
+const MoodLogs = () => {
+  let { moodLogs } = useContext(MoodDataContext);
+
+  // display only the latest 4 mood logs
+  moodLogs = moodLogs.slice(0, 4);
+
   return (
     <StyledMoodLogs>
       <p id="title">Your recent mood logs</p>

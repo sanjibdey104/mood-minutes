@@ -1,6 +1,7 @@
 import { Chart } from "chart.js";
-import React from "react";
+import React, { useContext } from "react";
 import { Line } from "react-chartjs-2";
+import { MoodDataContext } from "../context/MoodContext";
 import { weeklyMoodData } from "../data/WeeklyMoodData";
 
 Chart.defaults.font.family = "'Playfair Display', serif";
@@ -50,7 +51,8 @@ const options = {
   },
 };
 
-const MoodChart = ({ moodLogs }) => {
+const MoodChart = () => {
+  const { moodLogs } = useContext(MoodDataContext);
   const { filteredMoodData, lastSevenDays } = weeklyMoodData(moodLogs);
 
   const data = {
@@ -69,6 +71,7 @@ const MoodChart = ({ moodLogs }) => {
       },
     ],
   };
+
   return <Line data={data} options={options} />;
 };
 
