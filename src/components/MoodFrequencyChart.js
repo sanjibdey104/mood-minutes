@@ -9,13 +9,16 @@ Chart.defaults.font.size = 15;
 
 const options = {
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
+    y: {
+      ticks: {
+        stepSize: 1,
       },
-    ],
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
   },
 };
 
