@@ -1,12 +1,6 @@
-import dayjs from "dayjs";
 import styled from "styled-components";
-import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 import MoodForm from "./MoodForm";
 import MoodLogs from "./MoodLogs";
-import { FetchMoodLogs } from "../data/MoodLogsData";
-import Logo from "./Logo";
 import meditating from "../images/open-doodles-meditating.svg";
 import WeeklyMoodChart from "../components/WeeklyMoodChart";
 import MoodFrequencyChart from "./MoodFrequencyChart";
