@@ -14,6 +14,7 @@ const StyledMoodLog = styled.li`
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 0.5rem;
 
   p {
