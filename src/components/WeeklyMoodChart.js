@@ -16,7 +16,14 @@ const options = {
       },
     },
     y: {
+      min: 0,
+      max: 6,
+      autoSkip: false,
+      autoSkipPassing: 3,
+      beginAtZero: true,
       ticks: {
+        stepSize: 1,
+        color: "#023e8a",
         callback: function (label, index, labels) {
           switch (label) {
             case 0:
@@ -37,7 +44,6 @@ const options = {
               return null;
           }
         },
-        color: "#023e8a",
       },
     },
   },
