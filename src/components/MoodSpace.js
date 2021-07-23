@@ -40,11 +40,12 @@ const StyledMoodSpace = styled.section`
   }
 
   .mood-charts {
-    width: clamp(22rem, 55vw, 45rem);
+    width: clamp(22rem, 50vw, 40rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5rem;
+    font-size: 1rem;
 
     h3 {
       font-weight: lighter;

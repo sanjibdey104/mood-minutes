@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 :root {
     --primary-font: 'Playfair Display', serif;
-    --secondary-font: 'Poppins', sans-serif;
+    --secondary-font:  'Space Mono', monospace;
     --accent-color: #ffc800;
     --code-red: #e63946da;
     --box-shadow: rgba(50, 50, 90, 0.25) 0px 8px 10px -5px,

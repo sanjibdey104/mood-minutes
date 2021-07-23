@@ -4,13 +4,20 @@ import { Bar } from "react-chartjs-2";
 import { MoodDataContext } from "../context/MoodContext";
 import { moodFrequencyData } from "../data/MoodFrequencyData";
 
-Chart.defaults.font.family = "'Playfair Display', serif";
-Chart.defaults.font.size = 15;
+Chart.defaults.font.family = " 'Space Mono', monospace";
+Chart.defaults.font.size = 13;
+Chart.defaults.font.weight = "lighter";
 
 const options = {
   scales: {
+    x: {
+      ticks: {
+        color: "#023e8a",
+      },
+    },
     y: {
       ticks: {
+        color: "#023e8a",
         stepSize: 1,
       },
     },
