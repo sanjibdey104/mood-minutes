@@ -4,9 +4,8 @@ import { Line } from "react-chartjs-2";
 import { MoodDataContext } from "../context/MoodContext";
 import { weeklyMoodData } from "../data/WeeklyMoodData";
 
-Chart.defaults.font.family = " 'Space Mono', monospace";
-Chart.defaults.font.size = 13;
-Chart.defaults.font.weight = "lighter";
+Chart.defaults.font.family = "'Montserrat', sans-serif";
+Chart.defaults.font.size = 12;
 
 const options = {
   responsive: true,
