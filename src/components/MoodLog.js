@@ -33,7 +33,9 @@ const StyledMoodLog = styled.li`
     flex-direction: column;
     gap: 0.2rem;
     margin-left: auto;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+    margin-top: 1rem;
+    font-weight: 500;
   }
 `;
 
