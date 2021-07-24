@@ -77,7 +77,7 @@ const Welcome = () => {
           <button id="to-signup">Sign Up</button>
         </Link>
       </div>
-      <button id="google-auth-signin" onClick={() => handleGoogleSignin()}>
+      <button id="google-auth-signin" onClick={handleGoogleSignin}>
         <SiGoogle /> Continue with Google
       </button>
     </StyledWelcomeSection>
