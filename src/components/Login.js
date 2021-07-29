@@ -38,10 +38,12 @@ const StyledLoginForm = styled.form`
   gap: 1.5rem;
 
   input {
+    width: 18rem;
     font-size: 1.1rem;
     padding: 0.2rem 0.75rem;
+    border: 0;
     border-radius: 0.5rem;
-    border: 1px solid black;
+    border: 1px solid #a6a8a9;
   }
 `;
 
@@ -74,8 +76,8 @@ const Login = () => {
   return (
     <StyledLoginSection>
       {error && <Toast msg={error} />}
-      <h2>login to your mood</h2>
       <img src={jumping} alt="jumping doodle" id="jumping-doodle" />
+      <h2>login to your mood</h2>
       <StyledLoginForm
         className="sign-up-form"
         onSubmit={(e) => handleLogin(e)}

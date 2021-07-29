@@ -103,11 +103,17 @@ button {
     &:hover, &:focus {
       box-shadow: var(--hover-box-shadow);
     }
-  }
+}
+
+#login-button,  
+#signup-button {
+    margin-top: 1.5rem;
+}
 
 #back-home-link {
     width: 3rem;
     color: #000;
     font-size: 2rem;
+    margin-top: -1rem;
 }
 `;

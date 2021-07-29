@@ -42,8 +42,8 @@ const StyledSignUpForm = styled.form`
     width: 18rem;
     font-size: 1.1rem;
     padding: 0.2rem 0.75rem;
-    border: 0;
-    border-bottom: 1px solid black;
+    border-radius: 0.5rem;
+    border: 1px solid #a6a8a9;
   }
 `;
 
@@ -114,6 +114,7 @@ const SignUp = () => {
           sign up
         </button>
       </StyledSignUpForm>
+
       <Link to="/">
         <FiChevronLeft id="back-home-link" />
       </Link>
