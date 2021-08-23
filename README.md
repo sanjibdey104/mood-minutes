@@ -30,8 +30,7 @@
 - Averaging and filtering mood logs for better overall mood representation.
 
 ## Prospective
-- Add a monthly mood chart and improve the existing weekly chart.
-- Provide user with an overall mood summary over a period (weekly or monthly).
+- Expand the scope to suggesting Spotify Playlists for specific moods.
 
 
 ### Attribution
