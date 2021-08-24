@@ -75,7 +75,7 @@ const Login = () => {
 
   return (
     <StyledLoginSection>
-      {error && <Toast msg={error} />}
+      {error && <Toast msg={error.message} />}
       <img src={jumping} alt="jumping doodle" id="jumping-doodle" />
       <h2>login to your mood</h2>
       <StyledLoginForm

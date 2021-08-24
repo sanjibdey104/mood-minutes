@@ -80,7 +80,7 @@ const SignUp = () => {
 
   return (
     <StyledSignUpSection>
-      {error && <Toast msg={error} />}
+      {error && <Toast msg={error.message} />}
       <img src={ballet} alt="ballet doodle" id="ballet-doodle" />
       <h2>sign up your mood</h2>
       <StyledSignUpForm

@@ -4,14 +4,14 @@ import { MdError } from "react-icons/md";
 
 const StyledToast = styled.div`
   width: 15rem;
-  height: 2rem;
+  height: fit-content;
 
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
 
   box-shadow: 2px 2px #000;
@@ -35,18 +35,20 @@ const StyledToast = styled.div`
 `;
 
 const Toast = ({ msg }) => {
-  const [animate, setAnimate] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    setAnimate(true);
-    const removeListener = setTimeout(() => {
-      setAnimate(false);
-    }, 3000);
-    return () => removeListener();
+    setShowToast(true);
+    const toastTimeout = setTimeout(() => {
+      setShowToast(false);
+    }, 5000);
+    return () => {
+      clearTimeout(toastTimeout);
+    };
   }, []);
 
   return (
-    <StyledToast id={animate ? "show-toast" : null}>
+    <StyledToast id={showToast ? "show-toast" : null}>
       <MdError id="error-icon" />
       <p>{msg}</p>
     </StyledToast>
