@@ -1,6 +1,17 @@
 import dayjs from "dayjs";
 
 export const weeklyMoodData = (moodLogs) => {
+  // grouping data by date
+  const sameDayMoodLogs = {};
+  moodLogs.forEach((log) => {
+    const formattedLogDate = dayjs(log.loggedAt.toDate()).format("MMM DD");
+    if (!sameDayMoodLogs[formattedLogDate]) {
+      sameDayMoodLogs[formattedLogDate] = [log];
+    } else {
+      sameDayMoodLogs[formattedLogDate].push(log);
+    }
+  });
+
   // get the last seven days
   let lastSevenDays = [];
   for (let i = 0; i < 7; i++) {
