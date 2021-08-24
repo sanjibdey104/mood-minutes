@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Welcome from "./components/Welcome";
 import { GlobalStyles } from "./styles/globalStyles";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
+import Login from "./components/routes/Login";
+import SignUp from "./components/routes/SignUp";
+import PrivateRoute from "./components/routes/PrivateRoute";
+import Welcome from "./components/landing/Welcome";
 import { AuthProvider } from "./context/AuthContext";
-import MoodSpace from "./components/MoodSpace";
-import PrivateRoute from "./components/PrivateRoute";
+import MoodSpace from "./components/homepage/MoodSpace";
 
 function App() {
   return (

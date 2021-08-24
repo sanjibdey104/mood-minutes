@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
+import { FiChevronLeft } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import jumping from "../images/open-doodles-jumping.svg";
-import { FiChevronLeft } from "react-icons/fi";
-import { AuthContext } from "../context/AuthContext";
-import Toast from "./Toast";
+import { AuthContext } from "../../context/AuthContext";
+import ballet from "../../images/open-doodles-ballet.svg";
+import Toast from "../Toast";
 
-const StyledLoginSection = styled.section`
+const StyledSignUpSection = styled.section`
   width: 100%;
   height: 100%;
   border-radius: 1rem;
@@ -18,8 +18,9 @@ const StyledLoginSection = styled.section`
   gap: 2rem;
   position: relative;
 
-  #jumping-doodle {
+  #ballet-doodle {
     width: clamp(12rem, 15vw, 25rem);
+    color: white;
   }
 
   h2 {
@@ -31,37 +32,41 @@ const StyledLoginSection = styled.section`
   }
 `;
 
-const StyledLoginForm = styled.form`
+const StyledSignUpForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 
   input {
     width: 18rem;
     font-size: 1.1rem;
     padding: 0.2rem 0.75rem;
-    border: 0;
     border-radius: 0.5rem;
     border: 1px solid #a6a8a9;
   }
 `;
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, authUser } = useContext(AuthContext);
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState(null);
+  const { signup, authUser } = useContext(AuthContext);
   const history = useHistory();
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
+    if (password !== passwordConfirm) {
+      return setError("passwords did not match");
+    }
+
     try {
-      setPending(true);
       setError("");
-      await login(email, password);
+      setPending(true);
+      await signup(email, password);
       history.push("/moodspace");
     } catch (err) {
       setError(err);
@@ -69,43 +74,52 @@ const Login = () => {
     setPending(false);
   };
 
-  if (!pending && authUser) {
+  if (authUser) {
     history.push("/moodspace");
   }
 
   return (
-    <StyledLoginSection>
+    <StyledSignUpSection>
       {error && <Toast msg={error} />}
-      <img src={jumping} alt="jumping doodle" id="jumping-doodle" />
-      <h2>login to your mood</h2>
-      <StyledLoginForm
+      <img src={ballet} alt="ballet doodle" id="ballet-doodle" />
+      <h2>sign up your mood</h2>
+      <StyledSignUpForm
         className="sign-up-form"
-        onSubmit={(e) => handleLogin(e)}
+        onSubmit={(e) => handleSignup(e)}
       >
         <input
           type="email"
-          placeholder="your email"
+          placeholder="enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
-          placeholder="your password"
+          placeholder="set a password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="off"
           required
         />
-        <button type="submit" id="login-button">
-          login
+        <input
+          type="password"
+          placeholder="repeat that password"
+          value={passwordConfirm}
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          autoComplete="off"
+          required
+        />
+        <button disabled={pending} type="submit" id="signup-button">
+          sign up
         </button>
-      </StyledLoginForm>
+      </StyledSignUpForm>
+
       <Link to="/">
         <FiChevronLeft id="back-home-link" />
       </Link>
-    </StyledLoginSection>
+    </StyledSignUpSection>
   );
 };
 
-export default Login;
+export default SignUp;

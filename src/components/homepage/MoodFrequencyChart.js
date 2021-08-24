@@ -1,8 +1,8 @@
 import { Chart } from "chart.js";
 import React, { useContext } from "react";
 import { Bar } from "react-chartjs-2";
-import { MoodDataContext } from "../context/MoodContext";
-import { moodFrequencyData } from "../data/MoodFrequencyData";
+import { MoodDataContext } from "../../context/MoodContext";
+import { moodFrequencyData } from "../../data/MoodFrequencyData";
 
 Chart.defaults.font.family = "'Montserrat', sans-serif";
 Chart.defaults.font.size = 12;

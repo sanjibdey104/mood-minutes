@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import firebase from "firebase/app";
-import { db } from "../firebase/initFirebase";
+import { db } from "../../firebase/initFirebase";
 import { MdAdd } from "react-icons/md";
-import MoodMojis from "./MoodMojis";
 import styled from "styled-components";
-import happy from "../images/emojis/happy.png";
+import MoodMojis from "./MoodMojis";
+import happy from "../../images/emojis/happy.png";
 
 const StyledMoodForm = styled.form`
   min-width: 50%;

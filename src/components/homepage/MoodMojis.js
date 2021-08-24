@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // import emoji pngs
-import cool from "../images/emojis/cool.png";
-import sad from "../images/emojis/sad.png";
-import happy from "../images/emojis/happy.png";
-import nervous from "../images/emojis/nervous.png";
-import neutral from "../images/emojis/neutral.png";
-import angry from "../images/emojis/angry.png";
-import confused from "../images/emojis/confused.png";
+import cool from "../../images/emojis/cool.png";
+import sad from "../../images/emojis/sad.png";
+import happy from "../../images/emojis/happy.png";
+import nervous from "../../images/emojis/nervous.png";
+import neutral from "../../images/emojis/neutral.png";
+import angry from "../../images/emojis/angry.png";
+import confused from "../../images/emojis/confused.png";
 
 const MoodMojisArray = styled.div`
   width: 100%;

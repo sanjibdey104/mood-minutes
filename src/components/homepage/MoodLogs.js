@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { MoodDataContext } from "../context/MoodContext";
+import { MoodDataContext } from "../../context/MoodContext";
 import MoodLog from "./MoodLog";
 
 const StyledMoodLogs = styled.section`

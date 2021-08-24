@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import swinging from "../images/open-doodles-swinging.svg";
+import swinging from "../../images/open-doodles-swinging.svg";
 import { Link, useHistory } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { SiGoogle } from "react-icons/si";
 
 const StyledWelcomeSection = styled.section`
