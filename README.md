@@ -5,9 +5,8 @@
 - ReactJS
 - ChartJS
 
-## Goal
-- Self-taught web development journey exposed me to whole new mood swings. While learning new concepts, facing implementation challenges, getting comfortable and feeling inept, there's a visible curve of moods.
-- Idea was to have a platform to track the swings. Recording personal mood logs overtime and having a visual representation helps analyze and act accordingly. 
+### Mockup
+![application mockup](src/assets/mockup/mood_minutes_mockup.png)
 
 ## Features
 - User can login using email/password or Google account
@@ -20,6 +19,10 @@
   - Update MoodSpace theme as per current mood
   - Generate monthly mood chart
   - Display a mood summary on weekly/monthly basis
+
+## Goal
+- Self-taught web development journey exposed me to whole new mood swings. While learning new concepts, facing implementation challenges, getting comfortable and feeling inept, there's a visible curve of moods.
+- Idea was to have a platform to track the swings. Recording personal mood logs overtime and having a visual representation helps analyze and act accordingly. 
 
 ## Learnings
 - Using ChartJS for data representation.
