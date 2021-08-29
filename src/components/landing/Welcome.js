@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import swinging from "../../images/open-doodles-swinging.svg";
+import swinging from "../../assets/open-doodles-swinging.svg";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { SiGoogle } from "react-icons/si";

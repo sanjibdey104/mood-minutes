@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MoodForm from "./MoodForm";
 import MoodLogs from "./MoodLogs";
-import meditating from "../../images/open-doodles-meditating.svg";
+import meditating from "../../assets/open-doodles-meditating.svg";
 import WeeklyMoodChart from "./WeeklyMoodChart";
 import MoodFrequencyChart from "./MoodFrequencyChart";
 import { MoodDataProvider } from "../../context/MoodContext";

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import jumping from "../../images/open-doodles-jumping.svg";
+import jumping from "../../assets/open-doodles-jumping.svg";
 import { FiChevronLeft } from "react-icons/fi";
 import { AuthContext } from "../../context/AuthContext";
 import Toast from "../Toast";

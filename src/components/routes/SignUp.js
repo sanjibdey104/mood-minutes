@@ -3,7 +3,7 @@ import { FiChevronLeft } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../../context/AuthContext";
-import ballet from "../../images/open-doodles-ballet.svg";
+import ballet from "../../assets/open-doodles-ballet.svg";
 import Toast from "../Toast";
 
 const StyledSignUpSection = styled.section`

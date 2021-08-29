@@ -5,7 +5,7 @@ import { db } from "../../firebase/initFirebase";
 import { MdAdd } from "react-icons/md";
 import styled from "styled-components";
 import MoodMojis from "./MoodMojis";
-import happy from "../../images/emojis/happy.png";
+import happy from "../../assets/emojis/happy.png";
 
 const StyledMoodForm = styled.form`
   min-width: 50%;
