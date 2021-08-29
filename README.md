@@ -1,5 +1,7 @@
 # Mood Minutes
-> Application to track and analyze your mood swings. Take notes, generate mood charts and observe it overtime.
+Application to track and analyze your mood swings. Take notes, generate mood charts and observe it overtime.
+
+#### live @ [mood-minutes.vercel.app/](https://mood-minutes.vercel.app/)
 
 ### Tech Stack
 - ReactJS
